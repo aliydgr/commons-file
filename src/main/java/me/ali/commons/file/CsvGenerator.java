@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 
 public class CsvGenerator {
 
-	public static void generateFromMap(String output, Map<String, Integer> contents) {
+	public static void generate(String output, Map<String, Integer> contents) {
 		try (FileWriter writer = new FileWriter(output)) {
 			for (Entry<String, Integer> e : contents.entrySet()) {
 				writer.append(e.getKey() + "," + e.getValue());
@@ -19,7 +19,7 @@ public class CsvGenerator {
 		}
 	}
 
-	public static <T> void generateFromModel(String output, List<T> list) {
+	public static <T> void generate(String output, List<T> list) {
 		try (FileWriter writer = new FileWriter(output)) {
 			for (T e : list) {
 				writer.append(e.toString());
@@ -30,7 +30,7 @@ public class CsvGenerator {
 		}
 	}
 
-	public static void generateFromString(String sFileName, String content) {
+	public static void generate(String sFileName, String content) {
 		try (FileWriter writer = new FileWriter(sFileName)) {
 			writer.append(content);
 		} catch (IOException e) {
